@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMPopTipView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CMPopTipViewDelegate>
+{
+	SEL problemList [50];
+	IBOutlet UITableView *tableView;
+	NSString *answer, *explanation, *question;
+}
+
+@property (nonatomic, retain) id currentPopTipViewTarget;
+@property (nonatomic, retain) NSMutableArray *visiblePopTipViews;
+
+-(void) dismissAllPopTipViews;
+-(void) loadProblems;
 
 @end
